@@ -1,0 +1,708 @@
+/* Body */
+
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-color: #000;
+}
+
+/* Nav Bar */
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: #00eaff;
+}
+
+header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.navbar .menu {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.navbar .highlight {
+    display: block;
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+.highlight {
+    background-color: #0ef;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.highlight:hover {
+    transform: scale(1.05);
+    color: #000;
+}
+
+.highlight:active {
+    transform: scale(0.95);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    width: 250px;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.dropdown-menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-menu .highlight {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-menu.open {
+    height: 325px;
+    width: 100%;
+    max-width: 100%;
+    left: 0; 
+    right: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-color: transparent;
+}
+
+/* Nav Bar Ends */
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .navbar .nav ul {
+        display: none;
+    }
+    
+    .navbar .menu {
+        display: flex;
+    }
+    
+    .navbar .menu i {
+        display: inline-block;
+    }
+    
+    .navbar .highlight {
+        display: none;
+    }
+    
+    .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu .highlight {
+        display: block;
+        margin-top: 1rem;
+        .login-popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 3px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .popup-content {
+            position: relative;
+            background: url('https://i.redd.it/new-and-slightly-older-discord-login-screen-as-a-png-v0-zznw60dgve3d1.png?width=1600&format=png&auto=webp&s=8c9aac38a07b339966ff21fb76e12ef551d6a9c2') no-repeat center center;
+            background-size: cover;
+            margin: 15% auto;
+            padding: 30px;
+            width: 350px;
+            border-radius: 15px;
+            animation: popupAnim 0.3s ease-in-out;
+            bottom: 100px;
+        }
+        
+        @keyframes popupAnim {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .popup-header {
+            color: white;
+            text-align: center;
+        }
+        
+        .popup-body input, .popup-body button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            box-sizing: border-box;
+        }
+        
+        .popup-body input {
+            background-color: #34495e;
+            color: white;
+        }
+        
+        .popup-body button {
+            background-color: #5d615f;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            width: 300px;
+            margin-left: 20px;
+            
+        }
+        
+        .popup-body button:hover {
+            background-color: #00b7ff;
+        }
+        
+        /* Neon Sky Blue buttons */
+        .login-btn, .signup-btn {
+            background-color: #00bcd4;
+            box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+            transition: 0.3s;
+        }
+        
+        .login-btn:hover, .signup-btn:hover {
+            background-color: #008c9e;
+            box-shadow: 0 0 15px #008c9e, 0 0 30px #008c9e;
+        }
+        
+        /* Forgot Password as clickable text */
+        .forgot-password-link {
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .forgot-password-link:hover {
+            color: #008c9e;
+            text-decoration: underline;
+        }
+        
+        /* Close button (MacOS style) */
+        .close-btn {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #e74c3c;
+        }
+        
+    }
+}
+.banner {
+    width: 900px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 250px;
+    top : 1px;
+    
+  }
+  
+  .slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .slideshow .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .slideshow .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .slideshow .slide.active {
+    opacity: 1;
+  }
+
+/* Product Cards */
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.product-card {
+    width: 22%;
+    background-color: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #333;
+}
+
+.product-info {
+    padding: 1rem;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0.5rem 0;
+}
+
+.product-description {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #0ef;
+    margin-bottom: 1rem;
+}
+
+.purchase-btn {
+    background-color: #0ef;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.purchase-btn:hover {
+    background-color: #00aaff;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%;
+    }
+}
+.logo img {
+    width: 50px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Position it relative to the corner */
+    top: 10px; /* Adjust the spacing from the top */
+    left: 10px; /* Adjust the spacing from the left */
+}
+
+/* Popup styling */
+.login-popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 3px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup-content {
+    position: relative;
+    background: url('https://i.redd.it/new-and-slightly-older-discord-login-screen-as-a-png-v0-zznw60dgve3d1.png?width=1600&format=png&auto=webp&s=8c9aac38a07b339966ff21fb76e12ef551d6a9c2') no-repeat center center;
+    background-size: cover;
+    margin: 15% auto;
+    padding: 30px;
+    width: 350px;
+    border-radius: 15px;
+    animation: popupAnim 0.3s ease-in-out;
+    bottom: 100px;
+}
+
+@keyframes popupAnim {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-header {
+    color: white;
+    text-align: center;
+}
+
+.popup-body input, .popup-body button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.popup-body input {
+    background-color: #34495e;
+    color: white;
+}
+
+.popup-body button {
+    background-color: #5d615f;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 300px;
+    margin-left: 20px;
+    
+}
+
+.popup-body button:hover {
+    background-color: #00b7ff;
+}
+
+/* Neon Sky Blue buttons */
+.login-btn, .signup-btn {
+    background-color: #00bcd4;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    transition: 0.3s;
+}
+
+.login-btn:hover, .signup-btn:hover {
+    background-color: #008c9e;
+    box-shadow: 0 0 15px #008c9e, 0 0 30px #008c9e;
+}
+
+/* Forgot Password as clickable text */
+.forgot-password-link {
+    color: #00bcd4;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+.forgot-password-link:hover {
+    color: #008c9e;
+    text-decoration: underline;
+}
+
+/* Close button (MacOS style) */
+.close-btn {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #e74c3c;
+}
+/* Container for Search Bar */
+#searchBarContainer {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+    background: linear-gradient(135deg, #000, #111);
+    border: 2px solid #00bfff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+    transition: all 0.4s ease-in-out;
+}
+
+/* Search Input Box */
+#searchInput {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    color: #00bfff;
+    font-size: 16px;
+    background: transparent;
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+/* Glow Effect for Input */
+@keyframes neonGlow {
+    from {
+        box-shadow: 0 0 5px #00bfff;
+    }
+    to {
+        box-shadow: 0 0 15px #00bfff;
+    }
+}
+
+/* Search Button Icon */
+#searchButton {
+    font-size: 24px;
+    color: #00bfff;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+#searchButton:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+/* Highlight Product Name */
+.product-name.highlight {
+    background: linear-gradient(90deg, #00bfff, #000);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    animation: fadeHighlight 0.6s ease-out;
+}
+
+/* Highlight Animation */
+@keyframes fadeHighlight {
+    0% {
+        background-color: #00bfff;
+        color: #000;
+    }
+    100% {
+        background: linear-gradient(90deg, #00bfff, #000);
+        color: white;
+    }
+}
+.highlight {
+    background-color: #f0f0f0; /* Light background for highlighted text */
+    font-weight: bold; /* Bold font for emphasis */
+  }
+  #searchBarContainer {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+    transition: all 0.3s ease-in-out;
+  }
+    
+/* Media query for screens with a max-width of 600px */
+@media screen and (max-width: 600px) {
+    /* Popup container */
+    #paymentPopup {
+        position: fixed;
+        top: 20%;
+        right: 10%; /* Position slightly to the right */
+        background-color: #000;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 350px; /* Smaller width for compact design */
+        height: 400px; /* Fixed height */
+        max-width: 90%; /* Responsive to viewport */
+        z-index: 1000;
+        padding: 10px;
+        color: #fff;
+        font-family: 'Kanit', sans-serif;
+        text-align: center;
+        box-sizing: border-box; /* Ensure padding is included in width */
+        overflow: hidden;
+        
+    }
+
+    /* Close button */
+    #paymentPopup button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /* Scrollable content container */
+    #paymentPopup .popupContent {
+        height: calc(100% - 40px); /* Subtract space for the close button */
+        overflow-y: auto; /* Enable scrolling */
+        padding-right: 10px; /* Prevent content from hiding behind the scrollbar */
+    }
+
+    /* QR Codes Section */
+    #paymentPopup .qrSection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    #paymentPopup .qrContainer {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #paymentPopup .qrContainer img {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        border: 2px solid #00aaff;
+    }
+
+    #paymentPopup .qrContainer p {
+        margin-top: 5px;
+        color: #00aaff;
+    }
+
+    /* Payment Note */
+    #paymentPopup .paymentNote h3 {
+        margin-bottom: 10px;
+        color: #00aaff;
+    }
+
+    #paymentPopup .paymentNote ol {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    #paymentPopup .paymentNote a {
+        color: #00aaff;
+        text-decoration: underline;
+    }
+
+    /* Join Discord Button */
+    #paymentPopup .discordButton {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 16px;
+        background-color: #00aaff;
+        color: #000;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+
+    #paymentPopup .discordButton:hover {
+        transform: scale(1.1);
+    }
+
+    /* Prevent Scrolling */
+    body.no-scroll {
+        overflow: hidden;
+    }
+}
+
+/* General Body Scroll Styles */
+body {
+    overflow: auto;
+}

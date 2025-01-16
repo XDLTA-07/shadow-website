@@ -1,0 +1,122 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    background-color: #f4f4f4;
+}
+
+
+
+/* Sale Section */
+.sale-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://wallpapers-clan.com/wp-content/uploads/2024/03/starfall-night-sky-mountains-aesthetic-gif-preview-desktop-wallpaper.gif') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Sale Container */
+.sale-container {
+    text-align: center;
+    color: #fff;
+    max-width: 700px;
+    width: 100%;
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker background for readability */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sale Content */
+.sale-title {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slide-in 1s ease forwards;
+}
+
+.sale-message {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: slide-in 1s ease forwards;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+}
+
+/* Slide-in Animation */
+@keyframes slide-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Styling */
+.go-back-btn {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.go-back-btn:hover {
+    transform: scale(1.1);
+    background-color: #0097a7;
+    box-shadow: 0 8px 16px rgba(0, 188, 212, 0.4);
+    letter-spacing: 2px;
+}
+
+.go-back-btn:active {
+    transform: scale(0.95);
+}
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 10000;
+}
+
+.preloader.hidden {
+    display: none;
+}
+
+
